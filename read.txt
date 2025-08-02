@@ -1,0 +1,81 @@
+"To set up and run the project:
+
+Confirm that all project files are located within the same directory.
+Open your terminal.
+Install the required packages by running: pip install -r requirements.txt
+Launch the application with: python main.py"
+
+
+
+If the hindi voice is not install in the system then:-
+
+
+Step 1: Check if Hindi Voice is Already Installed
+--------------------------------------------------
+1. Open "Settings" on your Windows PC.
+2. Navigate to: Time & Language > Speech
+3. Under "Manage voices", click on "Add voices".
+4. Check if "Hindi (India)" with "Microsoft Hemant" voice is listed.
+5. If it is not installed:
+   - Add the Hindi language pack by clicking "Add voices" and selecting "Hindi (India)"
+   - After installation, ensure that "Microsoft Hemant" appears in the list.
+
+Step 2: Apply Registry File to Register Hemant Voice (if not listed)
+---------------------------------------------------------------------
+1. Double-click the "hemant.reg" file provided with this setup.
+2. When prompted, allow the file to make changes to your registry.
+3. After successful merge, restart your computer.
+
+Content of hemant.reg file:
+----------------------------
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech_OneCore\Voices\Tokens\TTS_MS_HIIN_HEMANT_11.0]
+@="Microsoft Hemant - Hindi (India)"
+"409"="Microsoft Hemant - Hindi (India)"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech_OneCore\Voices\Tokens\TTS_MS_HIIN_HEMANT_11.0\Attributes]
+"Age"="Adult"
+"Gender"="Male"
+"Language"="hi-IN"
+"Name"="Microsoft Hemant"
+"VoiceType"="TTS21"
+"Path"="C:\Windows\Speech_OneCore\Engines\TTS\Microsoft\HiIN\MSTTSLocHiIN.dll"
+"LangDataPath"="C:\Windows\Speech_OneCore\Engines\TTS\Microsoft\HiIN\MSTTSLocHiIN.dat"
+"SayAsSupport"="spell=1;time=1;date=1;telephone=1;currency=1;"
+"SharedPronunciation"="True"
+
+Step 3: Install Python and Required Packages
+--------------------------------------------
+1. Install Python from: https://www.python.org
+2. Open Command Prompt and install pyttsx3:
+   pip install pyttsx3
+
+Step 4: Test Available Voices in Python
+----------------------------------------
+Run this script to check voices:
+
+import pyttsx3
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+for voice in voices:
+    print(f"ID: {voice.id} | Name: {voice.name} | Lang: {voice.languages}")
+
+Step 5: Use Hemant Voice in Your Script
+----------------------------------------
+import pyttsx3
+
+engine = pyttsx3.init()
+for voice in engine.getProperty('voices'):
+    if "Hemant" in voice.name:
+        engine.setProperty('voice', voice.id)
+        break
+
+engine.say("नमस्ते! हिंदी आवाज़ सफलतापूर्वक सक्रिय हो गई है।")
+engine.runAndWait()
+
+Step 6: Troubleshooting
+------------------------
+- If "Hemant" is not listed, re-apply the registry file and restart your system.
+- Make sure Python is 64-bit to access 64-bit voices.
+- If needed, run your Python script as administrator.

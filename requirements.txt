@@ -1,0 +1,8 @@
+pyttsx3
+mediapipe
+opencv-python
+numpy
+filterpy
+streamlit
+streamlit_webrtc
+av
