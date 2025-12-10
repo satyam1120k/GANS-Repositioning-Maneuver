@@ -74,5 +74,5 @@ To enable the "Microsoft Hemant" Hindi voice for TTS:
 
 -   **Camera not opening**: Ensure no other application is using the webcam.
 -   **Voice not working**: Verify your system volume and that `pyttsx3` is installed correctly. For Hindi, follow the specific setup steps in `read.txt`.
--   **Detection issues**: Ensure good lighting and that your full upper body is visible in the frame.
+-   **Detection issues**: Ensure good lighting and that your full upper body is visible in the frame..
 
