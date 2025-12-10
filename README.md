@@ -76,6 +76,3 @@ To enable the "Microsoft Hemant" Hindi voice for TTS:
 -   **Voice not working**: Verify your system volume and that `pyttsx3` is installed correctly. For Hindi, follow the specific setup steps in `read.txt`.
 -   **Detection issues**: Ensure good lighting and that your full upper body is visible in the frame.
 
-## License
-
-[Add License Information Here]
